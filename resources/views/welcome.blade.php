@@ -79,7 +79,17 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    @auth
+                    @if(Auth::user()->hasRole('admin'))
+                        <div>Acceso como administrador</div>
+                    @else
+                        <div>Acceso usuario</div>
+                    @endif
+                    @else
+
+                        @andauth
+
+                    Hoşgeldiniz
                 </div>
 
                 <div class="links">
