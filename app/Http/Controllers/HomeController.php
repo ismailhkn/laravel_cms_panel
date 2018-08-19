@@ -18,8 +18,8 @@ class HomeController extends Controller
     /*
         public function someAdminStuff(Request $request)
         {
-            $request->user()->authorizeRoles(‘admin’);
-            return view(‘some.view’);
+            $request->user()->authorizeRoles('admin');
+            return view('some.view');
         }
         */
 }

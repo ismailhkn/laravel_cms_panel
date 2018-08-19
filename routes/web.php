@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::put('ankara', function ($id) {
     //
 })->middleware('auth', 'role:admin');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
