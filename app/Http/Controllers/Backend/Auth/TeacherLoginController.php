@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Auth;
 
 use App\Http\Controllers\Backend\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class TeacherLoginController extends Controller
@@ -34,7 +35,7 @@ class TeacherLoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin,admin/home')->except('logout');
+        $this->middleware('guest:teacher,admin/home')->except('logout');
     }
 
     public function redirectTo()
@@ -42,14 +43,19 @@ class TeacherLoginController extends Controller
         return 'admin/home';
     }
 
-    protected function guard()
-    {
-        return \Auth::guard('admin');
-    }
-
     public function showLoginForm()
     {
         return view('auth.adminlogin');
     }
 
+    protected function guard()
+    {
+        return Auth::guard('teacher');
+    }
+
+    public function getLogout()
+    {
+        Auth::guard('teacher')->logout();
+        return redirect()->route('/');
+    }
 }

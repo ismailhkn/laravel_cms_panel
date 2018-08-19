@@ -16,16 +16,23 @@ Route::get('/', function () {
 });
 
 
+
+
 Route::put('ankara', function ($id) {
     //
 })->middleware('auth', 'role:admin');
 
 
 Auth::routes();
+Route::get('teacher/logout', 'Backend\Auth\TeacherLoginController@getLogout');
 Route::get('teacher/login', 'Backend\Auth\TeacherLoginController@showLoginForm');
 Route::post('teacher/login', 'Backend\Auth\TeacherLoginController@login')->name('teacher.login');
+
+Route::get('student/logout', 'Backend\Auth\StudentLoginController@getLogout');
 Route::get('student/login', 'Backend\Auth\StudentLoginController@showLoginForm');
 Route::post('student/login', 'Backend\Auth\StudentLoginController@login')->name('student.login');
+
+
 Route::group(['prefix' => 'teacher','middleware' => 'assign.guard:admin,admin/login'],function(){
 
     Route::get('home',function ()
@@ -41,4 +48,4 @@ Route::group(['prefix' => 'student','middleware' => 'assign.guard:subadmin,subad
         return view('subadminhome');
     });
 });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Frontend\HomeController@index')->name('home');
