@@ -21,3 +21,4 @@ Laravel ile güvenlik Kontrolü ve Role Tanımı yapıldı
 
 *Thanks Gökhan Kandemir*
 *Thanks Otwell (Creator of Laravel)*
+00
