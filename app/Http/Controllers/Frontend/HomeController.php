@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 
@@ -15,6 +15,8 @@ class HomeController extends Controller
         $request->user()->authorizeRoles(['user', 'admin']);
         return view('home');
     }
+
+
     /*
         public function someAdminStuff(Request $request)
         {
