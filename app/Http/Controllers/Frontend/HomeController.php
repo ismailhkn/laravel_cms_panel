@@ -3,27 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Frontend\Controller;
 
 class HomeController extends Controller
+
 {
-
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth');
+        return view('frontend.home');
     }
-
-    public function index(Request $request)
-    {
-        $request->user()->authorizeRoles(['user', 'admin']);
-        return view('home');
-    }
-
-
-    /*
-        public function someAdminStuff(Request $request)
-        {
-            $request->user()->authorizeRoles('admin');
-            return view('some.view');
-        }
-        */
 }
