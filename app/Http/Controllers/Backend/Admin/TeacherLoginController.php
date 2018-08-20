@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Auth;
+namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Backend\Controller;
 use Illuminate\Support\Facades\Auth;

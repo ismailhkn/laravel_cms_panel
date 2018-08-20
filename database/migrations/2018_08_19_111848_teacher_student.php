@@ -13,7 +13,7 @@ class TeacherStudent extends Migration
      */
     public function up()
     {
-        Schema::create('teacher', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email',100)->unique();
@@ -21,7 +21,7 @@ class TeacherStudent extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        Schema::create('student', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email',100)->unique();
@@ -38,7 +38,7 @@ class TeacherStudent extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teacher');
-        Schema::dropIfExists('student');
+        Schema::dropIfExists('teachers');
+        Schema::dropIfExists('students');
     }
 }

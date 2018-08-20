@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Auth;
+namespace App\Http\Controllers\Backend\Admin;
 
-use App\Teacher;
+use App\Student;
 use App\Http\Controllers\Backend\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -50,7 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:students',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -63,14 +63,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+        $user = Student::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        $user
-            ->roles()
-            ->attach(Role::where('name', 'user')->first());
         return $user;
     }
 }

@@ -99,7 +99,7 @@ return [
         ],
         'student' => [
             'driver' => 'eloquent',
-            'model' => App\Teacher::class,
+            'model' => App\Student::class,
         ],
 
         // 'users' => [
